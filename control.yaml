@@ -1,0 +1,15 @@
+version: 1
+products:
+  EMIR:
+  - {id: 2, type: 'MasterIntensityFlat', tags: {filter: H2(1-0)}, content: 'master_h2_flat_median.fits'}
+  - {id: 3, type: 'MasterIntensityFlat', tags: {filter: Ks}, content: 'master_k_flat_median.fits'}
+  - {id: 4, type: 'MasterIntensityFlat', tags: {filter: J}, content: 'master_j_flat_median.fits'}
+  - {id: 5, type: 'MasterIntensityFlat', tags: {filter: H}, content: 'master_h_flat_median.fits'}
+  - {id: 6, type: 'MasterBias', tags: {}, content: 'master_bias.fits'}
+  - {id: 7, type: 'MasterBadPixelMask', tags: {}, content: 'master_bpm_tutorial.fits'}
+requirements:
+  EMIR:
+    default:
+     FULL_DITHERED_IMAGE:
+      - {name: 'x_offsets', tags: {}, content: 'ref_object_pos.txt'}
+      
