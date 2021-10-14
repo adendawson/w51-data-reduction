@@ -12,11 +12,11 @@ from astropy import stats
 def epsf_builder(data):
     std = stats.mad_std(data)
     
-    mask = p.make_source_mask(data = data, nsigma = 2, npixels = 5)
+    mask = phot.make_source_mask(data = data, nsigma = 2, npixels = 5)
     mean, median, std = sigma_clipped_stats(data, sigma = 3, mask = mask)
     
     #can use std when calculating threshold but std value is small and threshold needs to be big ~3000
-    daofind = DAOStarFinder(fwhm = 3.0, threshold = 3000.) 
+    daofind = DAOStarFinder(fwhm = 4.0, threshold = 6000., roundlo = -1.0, roundhi = 1.0, sharplo = 0.2, sharphi = 1.0) 
     starcat = daofind(data - median)
     
     size = 25
