@@ -31,7 +31,7 @@ def catalog_constructor(main_catalog, other_catalog, main_catalog_fh, other_cata
     
     for i in range(len(main_catalog)):
         main_catalog[f"{other_filter}band_match_number"][i] = index[i]
-        main_catalog[f"{other_filter}band_match_separation"][i] = d3d[i]
+        main_catalog[f"{other_filter}band_match_separation"][i] = (d2d[i].to(u.arcsec)) / u.arcsec
         
     #main_catalog.rename_column('peak', f'peak_{main_filter}')
     #main_catalog.rename_column('flux_0', f'flux_{main_filter}')
